@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DighubComponentComponent } from './dighub-component.component';
+import { PluginComponent } from './plugin.component';
 
-describe('DighubComponentComponent', () => {
-  let component: DighubComponentComponent;
-  let fixture: ComponentFixture<DighubComponentComponent>;
+describe('PluginComponent', () => {
+  let component: PluginComponent;
+  let fixture: ComponentFixture<PluginComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DighubComponentComponent ]
+      declarations: [ PluginComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DighubComponentComponent);
+    fixture = TestBed.createComponent(PluginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

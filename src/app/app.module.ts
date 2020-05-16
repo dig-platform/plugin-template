@@ -4,19 +4,19 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
-import { DighubComponentComponent } from './dighub-component/dighub-component.component';
 import {FormsModule} from '@angular/forms';
 import {NgxFirebaseClientModule} from '@ngx-firebase/client';
 import {MatButtonModule} from '@angular/material/button';
+import {DighubPluginModule} from './dighub-plugin/dighub-plugin.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    DighubComponentComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    DighubPluginModule,
     FormsModule,
     MatCardModule,
     NgxFirebaseClientModule.forRoot({

@@ -1,10 +1,10 @@
 <div class="demo">
-  <h1>DigHub Component Demo</h1>
+  <h1>DigHub Plugin Demo</h1>
   <mat-card *ngIf="! user && loaded">
     <p>Please connect your Google account to get started</p>
     <button mat-flat-button color="primary" (click)="signIn()">Sign in with Google</button>
   </mat-card>
   <mat-card *ngIf="user && loaded">
-    <app-dighub-component></app-dighub-component>
+    <app-plugin></app-plugin>
   </mat-card>
 </div>
