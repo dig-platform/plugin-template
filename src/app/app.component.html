@@ -2,9 +2,16 @@
   <h1>DigHub Plugin Demo</h1>
   <mat-card *ngIf="! user && loaded">
     <p>Please connect your Google account to get started</p>
+
+    <blockquote class="error" *ngIf="error">
+      <mat-icon>error</mat-icon>
+      <span class="message">{{error}}</span>
+      <a mat-flat-button [href]="authLink" target="_blank">Configure auth</a>
+    </blockquote>
     <button mat-flat-button color="primary" (click)="signIn()">Sign in with Google</button>
   </mat-card>
   <mat-card *ngIf="user && loaded">
     <app-plugin></app-plugin>
+    <button mat-flat-button color="primary" (click)="signOut()">Sign out</button>
   </mat-card>
 </div>

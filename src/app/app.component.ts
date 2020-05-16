@@ -16,7 +16,16 @@ export interface Identity {
 export class AppComponent implements OnInit{
   public loaded: boolean;
   public user: Identity;
+  public error: string;
   public title = 'component-template';
+
+  get authLink() {
+    // todo figure out a better way to get the project id dynamically
+    const a: any = this.firebase.auth();
+    const project = a.a.D.split('.').shift();
+    return `https://console.firebase.google.com/u/0/project/${project}/authentication/providers`;
+  }
+
   constructor(private firebase: NgxFirebaseClientService) { }
 
   ngOnInit() {
@@ -31,7 +40,15 @@ export class AppComponent implements OnInit{
   signIn() {
     this.firebase.auth()
       .signInWithPopup(new auth.GoogleAuthProvider())
-      .then(res => window.location.reload());
+      .then(res => window.location.reload(), e => {
+        if (e.code === 'auth/unauthorized-domain') {
+          const regExp = /\(([^)]+)\)/;
+          const domain = regExp.exec(e.message)[1];
+          this.error = `You need to add the domain "${domain}" to the list of authorized authentication domains in Firebase before signing in`;
+        } else {
+          this.error = e.message;
+        }
+      });
   }
 
   signOut() {

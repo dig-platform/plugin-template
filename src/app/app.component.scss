@@ -3,3 +3,23 @@
 .demo{
   padding: 2.5rem;
 }
+
+.error{
+  padding: 1rem;
+  margin: 0 0 1rem 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: mat-color($mat-red, 300);
+  border-radius: 4px;
+  color: #fff;
+  mat-icon{
+    margin-right: 1rem;
+  }
+  .message{
+    flex: 1;
+  }
+  a{
+    color: mat-color($mat-blue, 400);
+  }
+}
